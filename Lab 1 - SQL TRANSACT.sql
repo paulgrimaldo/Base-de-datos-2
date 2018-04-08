@@ -1,0 +1,40 @@
+
+--   I) Revisar el Diagrama e Instancia de la Base de Datos "Demo"
+--  II) Crear y poblar la Base de Datos "Demo" usando el Script SQL denominado EsqBD_Demo.sql
+-- III) Elaborar los siguientes programas en la Base de Datos "Demo" usando TRANSACT-SQL
+
+-- 1. Hacer un programa que muestre en pantalla la palabra "Hola Mundo"
+-- 2. Hacer un programa donde declare variables de tipo Fecha, Entero, Real y Cadena, inicializarlas y mostrar su valor
+-- 3. Hacer un programa, en la que se asigne dos números a variable y muestre en otra variable la suma de los dos
+-- 4. Hacer un programa que asigne en una variable su <nombre> y muestre "Hola <nombre>"
+-- 5. Hacer un programa que muestre la lista de productos suministrados hasta la fecha por el proveedor PRV2, la lista debe mostrar: Nro Item,Código Producto, Nombre del Producto y Cantidad, al final de la lista se debe mostrar la sumatoria de las cantidades de los productos suministrados
+-- 6. Hacer un programa que muestre la lista de productos suministrados a la ciudades de Santa Cruz y La Paz, la lista debe mostrar: Nro Item,Código Producto, Nombre del Producto, Cantidad y Precio, al final de la lista se debe mostrar la promedio de las precios de los productos suministrados
+-- 7. Hacer un programa que muestre la lista de productos suministrados por los proveedores de la ciudad de Santa Cruz a la ciudad de La Paz,  la lista debe mostrar: Nro Item,Código Producto, Nombre del Producto, Cantidad, Precio e Importe Total,  al final de la lista se debe mostrar la sumatoria de las precios de los productos suministrados
+-- 8. Hacer una funcion denominada "Suma", que reciba dos numeros y retorne la suma de ambos numeros
+-- 9. Hacer una funcion denominada "GetCiudad", que reciba como parámetro el código del proveedor y retorne la ciudad donde vive el proveedor.
+--10. Hacer una funcion denominada "GetNombre", que reciba el codigo del proveedor y retorne su nombre
+--11. Hacer una funcion denominada "CalcularPuntos", que reciba el codigo del proveedor y calcule los puntos de bonificacion en base a los siguientes criterios:
+--      Si el proveedor suministro entre 1 y 20 bs se le asigna 10 puntos.
+--      Si el proveedor suministro entre 11 y 50 bs se le asigna 15 puntos.      
+--      Si el proveedor suministro mas de 51 bs se le asigna 20 puntos.
+--12. Hacer una funcion denominada "GetStock", que devuelva el Stock existente de un producto existente en una ciudad en particular.
+--13. Hacer una funcion denominada "GetInven", que devuelva el Inventario Valorado de un producto.
+--14. Hacer una funcion denominada "GetProdxCiud", que devuelva en una tabla los Productos existentes en una ciudad en particular
+--15. Hacer una funcion denominada "GetProvxProd", que devuelva en una tabla los Proveedores que suministraron algún Producto
+--16. Hacer una funcion denominada "GetProvNoSumi", que devuelva en una tabla los Proveedores que todavía no suministraron productos.
+--17. Hacer una funcion denominada "GetProvSumi", que devuelva en una tabla los nombres de los proveedores que suministraron algún producto color rojo
+--18. Hacer una funcion denominada "GetProdxProv", que devuelva en una tabla productos existente en un almacen y que fueron suministrado por un proveedor en particular
+--19. Hacer una funcion denominada "GetProdxColor", que devuelva en una tabla productos de color amarillo suministrados por un proveedor
+--20. Hacer una funcion denominada "GetProvTodo", que devuelva en una tabla los nombres de los proveedores que suministraron todos los productos.
+--21. Hacer una funcion denominada "GetProvOutCiud", que devuelva en una tabla los nombres de los proveedores que suministraron algún producto fuera de su ciudad.
+--23. Hacer una funcion denominada "GetMaxCantxCiud", que devuelva la cantidad más alta suministrada de un producto en una ciudad en particular.
+--24. Hacer una funcion denominada "GetUltFecxProv", que devuelva la ultima fecha que se suministró un producto por un proveedor en particular.
+--25. Hacer una funcion denominada "GetPrimFecxColor", que devuelva la en qué fecha por primera vez suministró algún producto de color Rojo.
+--26. Hacer una funcion denominada "GetPromxProv", que devuelva el importe promedio de productos suministrados por un proveedor.
+--27. Hacer un programa que muestre la lista de productos suministrados por un proveedor cuyos importes superen a 10 Bs, la lista debe mostrar: Nro Item, Código del Producto, Nombre del Producto, Fecha, Cantidad, Precio e Importe, al final de la lista se debe mostrar el descuento equivale al 10% del Importe total, siempre y cuando la sumatoria de los importes de los productos suministrados sea mayor 20.
+--28. Hacer un programa que muestre la lista con el importe promedio de cada productos suministrado, la lista debe mostrar: Nro Item,Código Producto, Nombre del Producto y Promedio.
+--29. Hacer un programa que muestre la lista con el Stock existente de cada producto existente en la ciudad de Santa Cruz, la lista debe mostrar: Nro Item,Código Producto, Nombre del Producto y Stock.
+--30. Hacer un programa que muestre la lista con el Inventario Valorado existente por cada almacén. la lista debe mostrar:Nro Item,Código Almacen, Nombre del Almacen y Importe.
+--31. Hacer un programa que muestre la lista con las cantidades más alta suministrada de cada producto en la ciudad de La Paz, siempre que la cantidad total de cada producto supere a 20, la lista debe mostrar: Nro Item,Código Producto, Nombre del Producto y CantidaAlta. 
+--32. Hacer un programa que muestre la lista con las últimas fechas de cada producto suministrada por el proveedor PRV3, la lista debe mostrar: Nro Item,Código Producto, Nombre del Producto y UltimaFecha.
+--33. Hacer un programa que muestre la lista con las fechas que por primera vez un proveedor suministró algún producto, la lista debe mostrar: Nro Item,Código Producto, Nombre del Producto y PrimeraFecha. 
