@@ -107,3 +107,30 @@ insert into sumi values(3,1,2,'12/4/2014',25,2,50)
 insert into sumi values(3,1,4,'12/6/2014',15,3,45)
 insert into sumi values(4,4,1,'12/6/2014',10,5,50)
 insert into sumi values(4,4,2,'12/6/2014',5,2,10)
+
+
+
+
+insert into pventas values(1,'Pedro Picapiedra',1,'24/04/2016',100,90)
+insert into pventas values(2,'Maria Mendez',2,'30/06/2016',140,130)
+insert into pventas values(3,'Tatiana Garcia',3,'28/01/2017',220,210)
+insert into pventas values(4,'Ana Maria Polo',4,'03/08/2015',190,180)
+insert into pventas values(5,'Juan Perez',2,'01/10/2015',110,100)
+
+---venta 1, almacen 1 ; productos = 1 cant 2  ,4 cant 3 ,
+declare @stock decimal(12,2)
+exec PA_StockxAlmacen 4,1,@stock output
+print @stock
+
+select * from sumi where sumi.cprd=4
+
+
+insert into dventas values(2,3,1,140,140)	--prod3 140
+insert into dventas values(1,4,2,20,40)		--prod4 20
+insert into dventas values(4,5,3,30,90)		--prod5 30
+insert into dventas values(5,2,2,25,50)		--prod2 25
+insert into dventas values(4,1,5,20,100)
+insert into dventas values(1,1,3,20,60)		--prod1 20
+insert into dventas values(5,5,2,30,60)
+insert into dventas values(3,5,4,30,120)
+insert into dventas values(3,2,2,25,50)

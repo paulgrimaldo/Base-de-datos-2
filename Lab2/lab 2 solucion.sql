@@ -108,9 +108,14 @@ declare @r int;
 exec PA_HayStock 10,@r output
 print @r
 --9. Hacer un PA denominado PA_StockxAlmacen que reciba el código del producto y el código del almacén, y que retorne el Stock existente del producto en el almacén. (El stock es la sumatoria de cantidades suministrada del producto en un determinado almacén).
-create procedure PA_StockxAlmacen( @cprd int, @calm int , @stock decimal(12,2) output) as 
+alter procedure PA_StockxAlmacen( @cprd int, @calm int , @stock decimal(12,2) output) as 
 begin 
-	set @stock = (select sum(cant) from sumi where cprd = @cprd and calm =@calm );	
+	if(select sum(cant) from sumi where cprd = @cprd and calm =@calm)>0
+		begin
+			set @stock = (select sum(cant) from sumi where cprd = @cprd and calm =@calm );
+		end	
+	else 
+		set @stock = 0 ;
 end 
 declare @stock decimal(12,2);
 exec PA_StockxAlmacen 2,4,@stock output
@@ -131,6 +136,37 @@ exec PA_HayStockxAlmacen 2,4,@result output
 print @result
 --11. Hacer un denominado PA_ValidarPreVenta, que reciba el Numero de Venta y que retorne 1 si todos los productos de la Pre Venta cuenta con Stock suficiente, de lo contrario retorna 0. (PA_StockxAlmacen).  Se debe insertar datos a la tabla pventas y dventas para probar.
 create procedure PA_ValidarPreVenta(@numventa int, @result int output)
+as begin 
+	declare @calm int = (select pventas.calm from pventas where pventas.nvta = @numventa);
+	print @calm;
+	declare @cprd int;
+	declare @cant int;
+	declare cursorProd cursor for 
+		select dventas.cprd,dventas.cant from dventas where dventas.nvta = @numventa;
+	open cursorProd;
+	fetch next from cursorProd into @cprd,@cant
+	set @result = 1;
+	while @@FETCH_STATUS=0
+		begin
+			declare @stock decimal(12,2);
+
+			exec PA_StockxAlmacen @cprd,@calm,@stock output
+				print 'Stock prod' + cast(@cprd as varchar(10)) + ' cant '+cast(@cant as varchar(10)) + ' stock ' + cast(@stock as varchar(20))
+				IF(@cant>=@stock)
+					begin 
+						set @result = 0 
+					end
+			fetch next from cursorProd into @cprd,@cant
+		end;
+	close cursorProd;
+	deallocate cursorProd;
+end
+
+declare @r int;
+exec PA_ValidarPreVenta 1,@r output
+
+print @r
+
 --12. Hacer un PA denominado PA_TotalPreVenta, que reciba el Numero de Venta y que retorne  el Importe Total de la Pre Venta. 
 --13. Hacer un PA denominado PA_DescPreVenta, que reciba como parámetro Numero de Venta y retorne el importe de descuento de la Pre Ventas, el descuento es dado bajo los siguientes criterios:
 --    Si el importe total de la pre venta esta entre 10 y 20 bs se aplica un descuento de 10%
