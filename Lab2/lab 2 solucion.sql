@@ -168,7 +168,10 @@ exec PA_ValidarPreVenta 1,@r output
 print @r
 
 --12. Hacer un PA denominado PA_TotalPreVenta, que reciba el Numero de Venta y que retorne  el Importe Total de la Pre Venta. 
-
+create procedure PA_TotalPreVenta(@nvta int, @imptToto decimal(12,2) OUTPUT) 
+AS BEGIN
+	set @imptToto =  (SELECT itot from pventas where nvta = @nvta)
+END 
 --13. Hacer un PA denominado PA_DescPreVenta, que reciba como parámetro Numero de Venta y retorne el importe de descuento de la Pre Ventas, el descuento es dado bajo los siguientes criterios:
 --    Si el importe total de la pre venta esta entre 10 y 20 bs se aplica un descuento de 10%
 --    Si el importe total de la pre venta esta entre 11 y 50 bs se aplica un descuento de 15% 
